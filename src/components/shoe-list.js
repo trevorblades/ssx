@@ -1,22 +1,7 @@
 import React from 'react';
 import {Box, Flex, Heading, Image, Stack, Text} from '@chakra-ui/core';
-import {gql, useQuery} from '@apollo/client';
-
-const LIST_SHOES = gql`
-  {
-    allShoes {
-      data {
-        _id
-        name
-        image
-        brand {
-          name
-          logo
-        }
-      }
-    }
-  }
-`;
+import {LIST_SHOES} from '../utils';
+import {useQuery} from '@apollo/client';
 
 export default function ShoeList() {
   const {data, loading, error} = useQuery(LIST_SHOES);
@@ -30,7 +15,7 @@ export default function ShoeList() {
   }
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing="4">
       {data.allShoes.data.map(shoe => (
         <Box key={shoe._id} rounded="lg" borderWidth={1} overflow="hidden">
           <Image objectFit="cover" src={shoe.image} h={250} w="100%" />
