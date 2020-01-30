@@ -15,7 +15,7 @@ const CREATE_SHOE = gql`
   ${SHOE_FRAGMENT}
 `;
 
-export default function Create(props) {
+export default function New(props) {
   const [uploading, setUploading] = useState(false);
   const [createShoe, {loading, error}] = useMutation(CREATE_SHOE, {
     update(cache, {data}) {
@@ -88,7 +88,11 @@ export default function Create(props) {
             </option>
           ))}
         </Select>
-        <Button isDisabled={loading || uploading} type="submit">
+        <Button
+          isLoading={loading || uploading}
+          loadingText="Submitting"
+          type="submit"
+        >
           Submit
         </Button>
       </Stack>
@@ -96,7 +100,7 @@ export default function Create(props) {
   );
 }
 
-Create.propTypes = {
+New.propTypes = {
   data: PropTypes.object.isRequired
 };
 

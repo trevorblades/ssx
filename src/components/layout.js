@@ -46,7 +46,7 @@ export default function Layout(props) {
           <Heading fontSize="2xl">
             <Link to="/">👟 {title}</Link>
           </Heading>
-          <Button size="sm" as={Link} to="/create">
+          <Button size="sm" as={Link} to="/new">
             Add new shoe
           </Button>
         </Flex>
