@@ -1,0 +1,16 @@
+type Shoe {
+  name: String!
+  image: String!
+  brand: Brand!
+}
+
+type Brand {
+  name: String!
+  logo: String!
+  shoes: [Shoe!] @relation
+}
+
+type Query {
+  allShoes: [Shoe!]
+  allBrands: [Brand!]
+}
